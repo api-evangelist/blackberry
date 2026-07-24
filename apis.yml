@@ -1,7 +1,33 @@
 aid: blackberry
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/blackberry.png
 name: Blackberry
-description: Blackberry is a company surfaced as a portfolio company of khosla-ventures and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  BlackBerry Limited is a Canadian intelligent security software and services
+  company headquartered in Waterloo, Ontario, and listed on the NYSE and TSX as
+  BB. Once known for its smartphones, BlackBerry today builds embedded and
+  cybersecurity software for enterprises and governments. Its portfolio spans
+  QNX (a real-time operating system for automotive and embedded/IoT systems),
+  Cylance AI-driven endpoint protection, BlackBerry UEM (Unified Endpoint
+  Management), BlackBerry AtHoc critical event management and mass notification,
+  BlackBerry SecuSUITE secure voice and messaging, BlackBerry Workspaces secure
+  file sharing, and the BlackBerry Dynamics secure mobility platform. Developers
+  integrate with these products through REST APIs and SDKs, including the
+  BlackBerry UEM Web Services REST API, the BlackBerry AtHoc API (v2, REST with
+  OpenID Connect / OAuth 2 auth), and the BlackBerry Dynamics SDKs for iOS,
+  Android, Cordova, and React Native. This profile was added to the API
+  Evangelist network as a portfolio-company lead and enriched by the pipeline
+  from BlackBerry's public developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/blackberry/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +37,18 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Cybersecurity
+- Unified Endpoint Management
+- Mobile Security
+- Secure Communications
+- Critical Event Management
+- Embedded Systems
+- IoT
+- Automotive
+- QNX
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +58,34 @@ maintainers:
 common:
 - type: Website
   url: https://www.blackberry.com/
+- type: DeveloperPortal
+  url: https://developers.blackberry.com/
+- type: Documentation
+  url: https://docs.blackberry.com/en
+- type: APIReference
+  url: https://docs.blackberry.com/en/id-comm-collab/blackberry-athoc/blackberry-athoc/7_20/athoc-api
+- type: Support
+  url: https://www.blackberry.com/en/secure-communications/support/developers/developers-support
+- type: Blog
+  url: https://blogs.blackberry.com/
+- type: GitHubOrganization
+  url: https://github.com/blackberry
+- type: PrivacyPolicy
+  url: https://www.blackberry.com/en/legal/privacy-policy
+- type: TermsOfService
+  url: https://www.blackberry.com/en/legal/blackberry-solution-license-agreement
+- type: WellKnown
+  url: well-known/blackberry-well-known.yml
+- type: SecurityTxt
+  url: well-known/blackberry-security.txt
+- type: DomainSecurity
+  url: security/blackberry-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/blackberry-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.blackberry.com/en/secure-communications/blackberry-coordinated-vulnerability-disclosure-policy
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
