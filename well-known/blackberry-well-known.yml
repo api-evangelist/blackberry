@@ -2,20 +2,25 @@ generated: '2026-07-18'
 method: searched
 source: live probes of /.well-known/ on blackberry.com hosts
 host: https://www.blackberry.com
-documents:
-- path: /.well-known/security.txt
-  status: 200
-  file: blackberry-security.txt
-- path: /.well-known/openid-configuration
-  status: 404
-- path: /.well-known/oauth-authorization-server
-  status: 404
-- path: /.well-known/api-catalog
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
-notes: >-
-  developers.blackberry.com returns HTTP 200 for every /.well-known/ path but
-  serves the same Next.js SPA HTML shell (soft-200, content-type text/html), so
-  those are not real discovery documents and are not indexed. The only genuine
-  well-known document is the RFC 9116 security.txt on www.blackberry.com.
+notes: developers.blackberry.com returns HTTP 200 for every /.well-known/ path but serves the same Next.js
+  SPA HTML shell (soft-200, content-type text/html), so those are not real discovery documents and are
+  not indexed. The only genuine well-known document is the RFC 9116 security.txt on www.blackberry.com.
+hosts:
+- host: https://www.blackberry.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: blackberry-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
