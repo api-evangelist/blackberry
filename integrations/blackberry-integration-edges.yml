@@ -10,6 +10,9 @@ checked:
 - https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-15/suppliers
 - https://www.openchainproject.org/community-of-conformance
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+- https://androidenterprisepartners.withgoogle.com/api/search/products?aesd_product_type=EMM
+- https://androidenterprisepartners.withgoogle.com/emm/
+- microsoft-intune/integrations/microsoft-intune-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -28,6 +31,55 @@ edges:
   seller_name: BlackBerry
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: OpenChain Project
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  category: Open source compliance programme (OpenChain)
+  evidence: https://www.openchainproject.org/community-of-conformance
+  contract_reference:
+    register: OpenChain Community of Conformance (openchainproject.org/community-of-conformance)
+    standard: OpenChain (ISO/IEC 5230, ISO/IEC 18974)
+    spec_file: null
+    role: openchain-self-declared-conformance
+    registered_name: BlackBerry
+    website: https://www.blackberry.com/
+    matched_domain: blackberry.com
+    matched_by: domain
+    standards:
+    - ISO/IEC 18974
+    - ISO/IEC 5230
+    self_declared: true
+    in_market_tags:
+    - cybersecurity
+    signal_note: 'participation only: SELF-DECLARED conformance of the organisation''s own compliance programme
+      (not a product certification), so no certified_products'
+    detected_by: sweep-software-supply-chain.py
+    detected: '2026-10-18'
+  detected_by: sweep-software-supply-chain.py
+  first_seen: '2026-10-18'
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200009467
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - BB AtHoc Messaging (EMEA)
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Publisher Attestation
 - partner_name: FedRAMP
   partner: null
   partner_match: register
@@ -103,55 +155,54 @@ edges:
       latest_authorization: '2022-05-17'
   detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
-- partner_name: OpenChain Project
+- partner_name: Android Enterprise (Google partner program)
   partner: null
   partner_match: register
   type: register
   channel: standard-directory
   relationship: standard-participant
   direction: partner-built
-  category: Open source compliance programme (OpenChain)
-  evidence: https://www.openchainproject.org/community-of-conformance
+  evidence: https://androidenterprisepartners.withgoogle.com/emm/
+  category: Android Enterprise solution partner
   contract_reference:
-    register: OpenChain Community of Conformance (openchainproject.org/community-of-conformance)
-    standard: OpenChain (ISO/IEC 5230, ISO/IEC 18974)
+    register: Android Enterprise Solutions Directory (androidenterprisepartners.withgoogle.com /api/search/products)
+    standard: Android Enterprise Recommended
     spec_file: null
-    role: openchain-self-declared-conformance
-    registered_name: BlackBerry
-    website: https://www.blackberry.com/
+    role: android-enterprise-partner
+    registered_name: BlackBerry Corporation
+    register_id: a2FHs000005cSQsMAM
     matched_domain: blackberry.com
     matched_by: domain
-    standards:
-    - ISO/IEC 18974
-    - ISO/IEC 5230
-    self_declared: true
-    in_market_tags:
-    - cybersecurity
-    signal_note: 'participation only: SELF-DECLARED conformance of the organisation''s own compliance programme
-      (not a product certification), so no certified_products'
-    detected_by: sweep-software-supply-chain.py
-    detected: '2026-10-18'
-  detected_by: sweep-software-supply-chain.py
-  first_seen: '2026-10-18'
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
+    product_types:
+    - EMM
+    products_sample:
+    - BlackBerry Corporation
+    signal_note: listing = participation; certified_products = ONE entry per product type Google validated against
+      the Android Enterprise Recommended requirements (badge on the listing); the directory carries current validations
+      only, so lapsed is always false; partner_tier is the program badge (Gold / Silver), recorded, never counted
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+    identity: wikidata Q171819 'BlackBerry' P856 http://www.blackberry.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+  partner_tier: Silver partner
+- partner_name: Microsoft Intune (partner connector docs)
+  partner: microsoft-intune
   partner_match: mirror
   mirror_match: domain
-  type: marketplace
+  type: docs
   relationship: platform-app
   direction: third-party
   channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200009467
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  mirror_of: microsoft-intune/integrations/microsoft-intune-integration-edges.yml
   apps:
-  - BB AtHoc Messaging (EMEA)
+  - BlackBerry UEM
   listing_count: 1
-  detected: '2026-10-18'
+  detected: '2026-10-20'
   detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Publisher Attestation
+  category: Intune third-party device compliance partner
 source:
 - https://raw.githubusercontent.com/18F/fedramp-data/4b73d9247fd6360759960e4690e3ce4ca858e0fa/data/data.json
 - https://govramp.org/program-participants
